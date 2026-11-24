@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Md. Ibrahim — Python developer portfolio" />
+  <title>Md. Ibrahim | Python Developer</title>
+  <style>
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap");
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #08080f; }
+button, a { -webkit-tap-highlight-color: transparent; }
+.portfolio { min-height: 100vh; overflow: hidden; background: #08080f; color: #f0f0ff; font-family: "Inter", sans-serif; line-height: 1.6; }
+.portfolio button { font: inherit; }
+.mi-aurora { position: fixed; z-index: 0; border-radius: 999px; filter: blur(90px); pointer-events: none; opacity: .18; }
+.mi-aurora-one { width: 390px; height: 390px; top: -160px; left: -140px; background: #a855f7; }
+.mi-aurora-two { width: 330px; height: 330px; top: 34%; right: -150px; background: #06b6d4; opacity: .12; }
+.mi-aurora-three { width: 280px; height: 280px; bottom: 15%; left: 22%; background: #ec4899; opacity: .09; }
+.mi-nav { position: fixed; top: 0; right: 0; left: 0; z-index: 50; transition: .3s ease; }
+.mi-nav-scrolled { background: rgba(8,8,15,.88); border-bottom: 1px solid rgba(168,85,247,.16); backdrop-filter: blur(18px); }
+.mi-nav-inner { max-width: 1120px; margin: auto; padding: 17px 24px; display: flex; align-items: center; justify-content: space-between; }
+.mi-logo { border: 0; padding: 0; background: linear-gradient(90deg,#a855f7,#06b6d4); color: transparent; background-clip: text; font-family: "Outfit"; font-size: 21px; font-weight: 900; cursor: pointer; }
+.mi-logo span { color: #7878a0; font-family: "JetBrains Mono"; font-size: 12px; margin-left: 4px; -webkit-text-fill-color: #7878a0; }
+.mi-nav-links { display: flex; gap: 30px; align-items: center; }
+.mi-nav-links button, .mi-mobile-nav button { border: 0; background: none; color: #9292ad; font: 500 13px "JetBrains Mono"; text-transform: capitalize; cursor: pointer; transition: .2s; }
+.mi-nav-links button:hover, .mi-mobile-nav button:hover { color: #a855f7; }
+.mi-nav-links .mi-hire { padding: 9px 17px; border-radius: 9px; color: white; background: linear-gradient(135deg,#a855f7,#ec4899); font-family: "Inter"; font-weight: 700; }
+.mi-menu { display: none; color: white; background: none; border: 0; font-size: 26px; cursor: pointer; }
+.mi-mobile-nav { padding: 10px 24px 20px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; background: #11111e; border-bottom: 1px solid rgba(168,85,247,.16); }
+main, footer { position: relative; z-index: 1; }
+.mi-hero, .mi-section, .mi-contained { max-width: 1120px; margin: auto; }
+.mi-hero { min-height: 100vh; padding: 100px 24px 55px; display: grid; grid-template-columns: 1.08fr .92fr; gap: 70px; align-items: center; }
+.mi-available { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 24px; padding: 6px 12px; border: 1px solid rgba(168,85,247,.16); border-radius: 999px; background: #11111e; color: #9292ad; font: 12px "JetBrains Mono"; }
+.mi-available span { width: 8px; height: 8px; border-radius: 50%; background: #84cc16; box-shadow: 0 0 12px #84cc16; animation: pulse 1.5s infinite; }
+.mi-hero h1 { margin: 0 0 12px; font: 900 clamp(54px,7vw,78px)/.98 "Outfit"; letter-spacing: -3px; }
+.mi-hero h1 strong, .mi-title span { color: transparent; background: linear-gradient(135deg,#a855f7,#06b6d4,#ec4899); background-clip: text; }
+.mi-hero h2 { margin: 0 0 12px; color: #9292ad; font: 600 clamp(22px,3vw,28px) "Outfit"; }
+.mi-hero h2 span { color: #a855f7; }
+.mi-hero-copy > p { max-width: 540px; margin: 0 0 30px; color: #9292ad; }
+.mi-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.mi-actions button, .mi-email-button { border-radius: 12px; padding: 12px 22px; font-weight: 700; cursor: pointer; transition: transform .2s, border-color .2s; }
+.mi-actions button:hover, .mi-email-button:hover { transform: translateY(-2px); }
+.mi-primary { color: white; border: 0; background: linear-gradient(135deg,#a855f7,#06b6d4); box-shadow: 0 0 26px rgba(168,85,247,.25); }
+.mi-secondary { color: white; border: 1px solid rgba(168,85,247,.22); background: transparent; }
+.mi-hero-art { display: flex; flex-direction: column; align-items: center; gap: 34px; }
+.mi-monitor-wrap { position: relative; width: 260px; height: 260px; display: grid; place-items: center; overflow: hidden; border: 2px solid rgba(168,85,247,.16); border-radius: 30px; background: linear-gradient(135deg,#11111e,#18182a); box-shadow: 0 0 45px rgba(168,85,247,.2); }
+.mi-monitor { position: relative; z-index: 2; width: 140px; }
+.mi-orbit { position: absolute; border-radius: 50%; border: 1px solid rgba(168,85,247,.22); animation: spin 8s linear infinite; }
+.mi-orbit-one { width: 135px; height: 135px; }.mi-orbit-two { width: 190px; height: 190px; border-color: rgba(6,182,212,.2); animation-direction: reverse; animation-duration: 11s; }.mi-orbit-three { width: 245px; height: 245px; border-style: dashed; border-color: rgba(236,72,153,.18); animation-duration: 14s; }
+.mi-code-badge { position: absolute; right: -4px; bottom: -4px; z-index: 3; display: grid; place-items: center; width: 54px; height: 54px; border-radius: 14px; background: linear-gradient(135deg,#a855f7,#ec4899); font: 700 14px "JetBrains Mono"; }
+.mi-stats { width: 100%; max-width: 350px; display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.mi-stats div { padding: 13px 8px; text-align: center; background: #11111e; border: 1px solid rgba(168,85,247,.16); border-radius: 12px; }
+.mi-stats strong { display: block; color: #a855f7; font: 900 26px "Outfit"; }.mi-stats span { display: block; color: #7878a0; font: 10px "JetBrains Mono"; }
+.mi-section { padding: 100px 24px; }.mi-tinted { max-width: none; background: rgba(17,17,30,.55); }.mi-contained { width: calc(100% - 48px); }
+.mi-section-label { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; color: #a855f7; font: 600 12px "JetBrains Mono"; letter-spacing: 2px; }.mi-section-label span { width: 65px; height: 1px; background: rgba(168,85,247,.2); }
+.mi-title { margin: 0 0 38px; font: 900 clamp(40px,5vw,55px)/1.05 "Outfit"; letter-spacing: -1.5px; }.mi-title .mi-cyan { color: #06b6d4; background: none; }.mi-title .mi-pink { color: #ec4899; background: none; }
+.mi-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }.mi-about-grid > div > p { color: #9292ad; margin: 0 0 16px; }.mi-about-grid b { color: #c7c7dc; }
+.mi-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 25px; }.mi-tags span { padding: 5px 11px; border-radius: 999px; color: #9292ad; border: 1px solid rgba(168,85,247,.18); background: #11111e; font: 11px "JetBrains Mono"; }
+.mi-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }.mi-feature, .mi-skill { padding: 20px; border: 1px solid rgba(168,85,247,.16); border-radius: 16px; background: #11111e; transition: .25s; }.mi-feature:hover,.mi-skill:hover { transform: translateY(-4px); border-color: rgba(168,85,247,.45); }.mi-feature-icon { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 11px; font: 700 12px "JetBrains Mono"; }.mi-feature h3,.mi-skill h3 { margin: 12px 0 4px; font: 700 15px "Outfit"; }.mi-feature p,.mi-skill p { margin: 0; color: #7878a0; font-size: 12px; }
+.mi-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }.mi-skill-top { display: flex; justify-content: space-between; align-items: flex-start; }.mi-skill-top h3 { margin-top: 0; font-size: 17px; }.mi-skill-top > span { width: 11px; height: 11px; border-radius: 50%; }.mi-progress { height: 6px; overflow: hidden; border-radius: 99px; margin-top: 22px; background: #1a1a2e; }.mi-progress i { display: block; height: 100%; border-radius: inherit; }.mi-toolkit-line { display: flex; align-items: center; gap: 9px; margin-top: 22px; color: #7878a0; font: 9px "JetBrains Mono"; letter-spacing: 2px; }.mi-toolkit-line i { flex: 1; height: 1px; background: rgba(168,85,247,.16); }
+.mi-project-empty { padding: 66px 24px; text-align: center; border-radius: 25px; border: 1px dashed rgba(168,85,247,.45); background: radial-gradient(circle at 50% 0%,rgba(168,85,247,.18),#11111e 55%); }.mi-project-icon { width: 58px; height: 58px; margin: auto auto 20px; display: grid; place-items: center; border-radius: 16px; color: #a855f7; background: rgba(168,85,247,.1); border: 1px solid rgba(168,85,247,.28); font: 700 16px "JetBrains Mono"; }.mi-project-empty small,.mi-contact-label { color: #a855f7; font: 10px "JetBrains Mono"; letter-spacing: 3px; }.mi-project-empty h3 { margin: 9px 0; font: 700 27px "Outfit"; }.mi-project-empty p { margin: auto; max-width: 520px; color: #7878a0; font-size: 14px; }
+.mi-contact { max-width: 700px; margin: auto; text-align: center; }.mi-contact .mi-title { margin: 10px 0 15px; }.mi-contact > p { color: #9292ad; }.mi-contact-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 35px 0 25px; }.mi-contact-cards a { display: flex; align-items: center; gap: 14px; padding: 18px; border-radius: 15px; text-decoration: none; text-align: left; color: white; background: #11111e; border: 1px solid rgba(168,85,247,.16); }.mi-contact-cards b { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 10px; color: #a855f7; background: rgba(168,85,247,.12); }.mi-contact-cards span { font-weight: 600; font-size: 13px; overflow-wrap: anywhere; }.mi-contact-cards small { display: block; margin-bottom: 2px; color: #7878a0; font: 9px "JetBrains Mono"; letter-spacing: 1px; }.mi-email-button { display: inline-block; color: white; text-decoration: none; background: linear-gradient(135deg,#a855f7,#06b6d4); }
+footer { padding: 28px 24px; text-align: center; color: #7878a0; border-top: 1px solid rgba(168,85,247,.14); font: 11px "JetBrains Mono"; }footer span { color: #a855f7; }
+@keyframes spin { to { transform: rotate(360deg); } } @keyframes pulse { 50% { opacity: .35; } }
+@media (max-width: 850px) { .mi-nav-links { display: none; }.mi-menu { display: block; }.mi-hero { grid-template-columns: 1fr; padding-top: 135px; text-align: center; }.mi-hero-copy > p { margin-left: auto; margin-right: auto; }.mi-actions { justify-content: center; }.mi-about-grid { grid-template-columns: 1fr; gap: 45px; }.mi-hero h1 { letter-spacing: -2px; }.mi-hero-art { margin-top: 10px; } }
+@media (max-width: 560px) { .mi-hero h1 { font-size: 49px; }.mi-monitor-wrap { width: 230px; height: 230px; }.mi-section { padding: 78px 20px; }.mi-contained { width: calc(100% - 40px); }.mi-feature-grid,.mi-skills,.mi-contact-cards { grid-template-columns: 1fr; }.mi-title { font-size: 39px; }.mi-stats { gap: 7px; }.mi-stats strong { font-size: 22px; }.mi-project-empty h3 { font-size: 23px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }.mi-orbit,.mi-available span { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="portfolio">
+    <div class="mi-aurora mi-aurora-one"></div>
+    <div class="mi-aurora mi-aurora-two"></div>
+    <div class="mi-aurora mi-aurora-three"></div>
+
+    <nav class="mi-nav" id="navbar">
+      <div class="mi-nav-inner">
+        <button class="mi-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">Md.Ibrahim<span>_dev</span></button>
+        <div class="mi-nav-links">
+          <button onclick="goTo('about')">about</button>
+          <button onclick="goTo('skills')">skills</button>
+          <button onclick="goTo('projects')">projects</button>
+          <button onclick="goTo('contact')">contact</button>
+          <button class="mi-hire" onclick="goTo('contact')">Hire Me</button>
+        </div>
+        <button class="mi-menu" id="menuButton" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+      </div>
+      <div class="mi-mobile-nav" id="mobileNav" style="display:none">
+        <button onclick="goTo('about')">about</button>
+        <button onclick="goTo('skills')">skills</button>
+        <button onclick="goTo('projects')">projects</button>
+        <button onclick="goTo('contact')">contact</button>
+      </div>
+    </nav>
+
+    <main>
+      <section class="mi-hero">
+        <div class="mi-hero-copy">
+          <div class="mi-available"><span></span> Available for work</div>
+          <h1>Hi, I'm<br><strong>Md. Ibrahim</strong></h1>
+          <h2>Python <span>Developer</span></h2>
+          <p>I turn ideas into practical Python applications using Flask, APIs, and MongoDB—one focused line of code at a time.</p>
+          <div class="mi-actions">
+            <button class="mi-primary" onclick="goTo('projects')">View Projects</button>
+            <button class="mi-secondary" onclick="goTo('contact')">Contact Me</button>
+          </div>
+        </div>
+
+        <div class="mi-hero-art">
+          <div class="mi-monitor-wrap" aria-label="Animated code monitor illustration">
+            <div class="mi-orbit mi-orbit-one"></div>
+            <div class="mi-orbit mi-orbit-two"></div>
+            <div class="mi-orbit mi-orbit-three"></div>
+            <svg class="mi-monitor" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+              <circle cx="60" cy="60" r="48" fill="url(#mi-glow)" opacity=".3"></circle>
+              <rect x="20" y="38" width="80" height="52" rx="6" fill="#171728" stroke="#a855f7" stroke-width="2"></rect>
+              <rect x="26" y="44" width="68" height="36" rx="3" fill="#080810"></rect>
+              <rect x="48" y="90" width="24" height="6" rx="2" fill="#171728" stroke="#a855f7" stroke-width="1.5"></rect>
+              <rect x="38" y="96" width="44" height="4" rx="2" fill="#a855f7" opacity=".6"></rect>
+              <rect x="32" y="50" width="28" height="3" rx="1.5" fill="#a855f7"><animate attributeName="width" values="28;18;28" dur="2.4s" repeatCount="indefinite"></animate></rect>
+              <rect x="32" y="57" width="44" height="3" rx="1.5" fill="#06b6d4"><animate attributeName="width" values="44;34;44" dur="1.8s" repeatCount="indefinite"></animate></rect>
+              <rect x="36" y="64" width="20" height="3" rx="1.5" fill="#ec4899"><animate attributeName="width" values="20;30;20" dur="2.1s" repeatCount="indefinite"></animate></rect>
+              <rect x="32" y="71" width="36" height="3" rx="1.5" fill="#84cc16"><animate attributeName="width" values="36;24;36" dur="1.6s" repeatCount="indefinite"></animate></rect>
+              <rect x="68" y="64" width="2" height="10" rx="1" fill="#fff"><animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"></animate></rect>
+              <defs><radialGradient id="mi-glow"><stop stop-color="#a855f7"></stop><stop offset="1" stop-color="transparent"></stop></radialGradient></defs>
+            </svg>
+            <div class="mi-code-badge">&lt;/&gt;</div>
+          </div>
+          <div class="mi-stats">
+            <div><strong>100</strong><span>Days of Code</span></div>
+            <div><strong>6</strong><span>Core Skills</span></div>
+            <div><strong>40%</strong><span>HTML</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="mi-section mi-about">
+        <div class="mi-section-label">01. ABOUT<span></span></div>
+        <div class="mi-about-grid">
+          <div>
+            <h2 class="mi-title">Who I <span class="mi-cyan">Am</span></h2>
+            <p>I'm Md. Ibrahim, a Python developer focused on building useful, reliable web applications and backend experiences.</p>
+            <p>I completed Angela Yu's <b>100 Days of Code: The Complete Python Pro Bootcamp</b>, strengthening my foundation through consistent, project-led practice.</p>
+            <div class="mi-tags"><span>Python</span><span>Flask</span><span>APIs</span><span>MongoDB</span><span>Git</span><span>HTML</span></div>
+          </div>
+          <div class="mi-feature-grid">
+            <article class="mi-feature"><div class="mi-feature-icon" style="color:#a855f7;background:#a855f718">&gt;_</div><h3>Python Focus</h3><p>A strong foundation built through 100 days of practical coding.</p></article>
+            <article class="mi-feature"><div class="mi-feature-icon" style="color:#06b6d4;background:#06b6d418">{ }</div><h3>Flask Apps</h3><p>Building lightweight web experiences with Python and Flask.</p></article>
+            <article class="mi-feature"><div class="mi-feature-icon" style="color:#ec4899;background:#ec489918">API</div><h3>API Work</h3><p>Connecting services and working with structured web data.</p></article>
+            <article class="mi-feature"><div class="mi-feature-icon" style="color:#84cc16;background:#84cc1618">Git</div><h3>Git Workflow</h3><p>Tracking changes and keeping development organised.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="mi-section mi-tinted">
+        <div class="mi-contained">
+          <div class="mi-section-label">02. SKILLS<span></span></div>
+          <h2 class="mi-title">My <span>Toolkit</span></h2>
+          <div class="mi-skills">
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>Python</h3><p>Core language</p></div><span style="background:#a855f7;box-shadow:0 0 14px #a855f7"></span></div><div class="mi-toolkit-line"><i></i> IN TOOLKIT</div></article>
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>Flask</h3><p>Web framework</p></div><span style="background:#06b6d4;box-shadow:0 0 14px #06b6d4"></span></div><div class="mi-toolkit-line"><i></i> IN TOOLKIT</div></article>
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>APIs</h3><p>Integration</p></div><span style="background:#ec4899;box-shadow:0 0 14px #ec4899"></span></div><div class="mi-toolkit-line"><i></i> IN TOOLKIT</div></article>
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>MongoDB</h3><p>Database</p></div><span style="background:#84cc16;box-shadow:0 0 14px #84cc16"></span></div><div class="mi-toolkit-line"><i></i> IN TOOLKIT</div></article>
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>Git</h3><p>Version control</p></div><span style="background:#f97316;box-shadow:0 0 14px #f97316"></span></div><div class="mi-toolkit-line"><i></i> IN TOOLKIT</div></article>
+            <article class="mi-skill"><div class="mi-skill-top"><div><h3>HTML</h3><p>Frontend · 40%</p></div><span style="background:#818cf8;box-shadow:0 0 14px #818cf8"></span></div><div class="mi-progress"><i style="width:40%;background:#818cf8"></i></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="mi-section mi-contained">
+        <div class="mi-section-label">03. PROJECTS<span></span></div>
+        <h2 class="mi-title">Featured <span class="mi-pink">Work</span></h2>
+        <div class="mi-project-empty"><div class="mi-project-icon">&lt;/&gt;</div><small>WORKSPACE RESERVED</small><h3>Featured projects coming soon.</h3><p>This space is ready for my selected Python, Flask, API, and MongoDB work.</p></div>
+      </section>
+
+      <section id="contact" class="mi-section mi-tinted">
+        <div class="mi-contact">
+          <div class="mi-contact-label">04. CONTACT</div>
+          <h2 class="mi-title">Let's <span>Connect</span></h2>
+          <p>Whether you have a project in mind, a job opportunity, or just want to chat about code—my inbox is always open.</p>
+          <div class="mi-contact-cards">
+            <a href="mailto:banoanjum215@gmail.com"><b>✉</b><span><small>EMAIL</small>banoanjum215@gmail.com</span></a>
+            <a href="tel:+918127867714"><b>☎</b><span><small>PHONE</small>+91 81278 67714</span></a>
+          </div>
+          <a class="mi-email-button" href="mailto:banoanjum215@gmail.com?subject=Portfolio enquiry">Send a Message</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>Designed &amp; built by <span>Md. Ibrahim</span> — <span id="year"></span></footer>
+  </div>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    const mobileNav = document.getElementById("mobileNav");
+    const menuButton = document.getElementById("menuButton");
+
+    function goTo(id) {
+      document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+      mobileNav.style.display = "none";
+      menuButton.textContent = "☰";
+    }
+
+    function toggleMenu() {
+      const isOpen = mobileNav.style.display === "flex";
+      mobileNav.style.display = isOpen ? "none" : "flex";
+      menuButton.textContent = isOpen ? "☰" : "×";
+    }
+
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("mi-nav-scrolled", window.scrollY > 40);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
